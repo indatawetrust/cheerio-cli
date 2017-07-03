@@ -10,24 +10,13 @@ installation
     
 Example 
 -----------
-    simple query 
-    $ curl -s https://github.com/mlwmlw/cheerio-cli | cheerio span[itemprop=title]
-    mlwmlw
+  
+  $ curl -s https://www.bonprix.com.tr/kategori/indirim-erkek-giyim/ | \
+    cheerio each : .product-list-item,url : .product-link*href, \ 
+    title: .product-title, brand: .product-brand, discount-price: .price-tag, \ 
+    price: .former, image: .product-image noscript img*src | jq
 
-    first element
-    $ curl -s https://github.com/mlwmlw/cheerio-cli/commits/master | cheerio .commit:last-child a:eq(1)
-    07b0406
-
-    output query elements size
-    $ curl -s https://github.com/mlwmlw/cheerio-cli/commits/master | cheerio .commit -o size
-    6
-
-    query element attribute
-    $ curl -s https://github.com/mlwmlw/cheerio-cli/commits/master | cheerio meta[name=hostname] -a content
-    github.com	
- 
-    piping ouput
-    $ curl -s https://github.com/mlwmlw/cheerio-cli | cheerio #readme | cheerio h2
+  
  
 [npm-image]: https://img.shields.io/npm/v/cheerio-cli.svg?style=flat
 [npm-url]: https://npmjs.org/package/cheerio-cli

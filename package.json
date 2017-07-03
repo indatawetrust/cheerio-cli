@@ -1,6 +1,6 @@
 {
-  "name": "cheerio-cli",
-  "version": "0.1.0",
+  "name": "cheerio-cliv2",
+  "version": "0.0.1",
   "description": "cheerio command line module",
   "main": "bin/cheerio",
   "bin": {
@@ -13,17 +13,20 @@
     "cheerio",
     "cli"
   ],
-  "contributors": [
-    {
-      "name": "Ayhan Kuru",
-      "email": "ayhankuru@yandex.com.tr"
-    }
-  ],
-  "author": "mlwmlw",
+  "author": "indatawetrust",
   "license": "MIT",
   "dependencies": {
     "cheerio": "^0.19.0",
     "cheerio-eq": "^1.0.0",
     "commander": "^2.8.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indatawetrust/cheerio-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/indatawetrust/cheerio-cli/issues"
+  },
+  "homepage": "https://github.com/indatawetrust/cheerio-cli#readme"
 }
