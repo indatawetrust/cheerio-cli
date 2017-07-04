@@ -1,6 +1,6 @@
 {
   "name": "cheerio-cliv2",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "cheerio command line module",
   "main": "bin/cheerio",
   "bin": {

@@ -34,13 +34,20 @@ process.stdin.on('end', function() {
 				tagger = {},
 				data = [];
 
+	let main = '';
+
   for (let selector of selectors.split(',')) {
     const [key, value] = selector.split(':');
 
-    tagger[key.trim()] = value.trim().replace(/ {1,}/g, ' ');
+		if (key.trim() === 'main') {
+			main = selector.split(':').slice(1).join(':');
+		} else {
+			tagger[key.trim()] = value.trim().replace(/ {1,}/g, ' ');
+		}
+
   }
 
-	const each = tagger['each'];
+	const each = tagger['each']
 
 	delete tagger['each'];
 
@@ -52,10 +59,13 @@ process.stdin.on('end', function() {
 				const select = tagger[key].split('*')[0],
 							attr = tagger[key].split('*')[1];
 
-				if (attr === 'src')
+				if (attr === 'src') {
 					map[key] = url.resolve('http://', $(el).find(select).attr(attr));
-				else
+				} else if(attr === 'href') {
+					map[key] = url.resolve(main, $(el).find(select).attr(attr));
+				} else {
 					map[key] = $(el).find(select).attr(attr);
+				}
 			} else {
 				map[key] = $(el).find(tagger[key]).text();
 			}
